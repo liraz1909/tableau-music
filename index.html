@@ -70,4 +70,209 @@
             color: #6b5b95;
             text-decoration: none;
             font-weight: 600;
-            transition
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff9ebb;
+            transform: scale(1.1);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        h2 {
+            color: #6b5b95;
+            border-bottom: 3px solid #ff9ebb;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .tableau-container {
+            padding: 25px;
+            background: linear-gradient(to bottom, #f9e1cc, #e2d1f9);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
+            margin: 20px 0;
+            overflow: visible;
+            min-height: 1300px;
+        }
+
+        .tableauPlaceholder {
+            width: 100%;
+            min-height: 1277px;
+        }
+
+        .music-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b5b95;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Music Analytics Jam 🎸🎧</h1>
+            <p>Where beats meet data! 🎶✨</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Music Dashboard 🎵</a></li>
+                <li><a href="#genres">Top Genres 🎤</a></li>
+                <li><a href="#trends">Music Trends 📈</a></li>
+                <li><a href="#about">About Us 🎉</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="section" id="dashboard">
+                <h2>Interactive Music Dashboard 🎹</h2>
+                <div class="tableau-container">
+                    <!-- Replace this section with your new Tableau embed code -->
+                    <div class='tableauPlaceholder' id='viz1743921088504' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/Bo/Book1_17439201209740/Dashboard1/1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='Book1_17439201209740/Dashboard1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https://public.tableau.com/static/images/Bo/Book1_17439201209740/Dashboard1/1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <p>🎵 Explore streaming stats, artist trends, and more! Drag those sliders! 🎚️</p>
+                </div>
+            </section>
+
+            <section class="section" id="genres">
+                <h2>Top Genres Right Now 🎸</h2>
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Music vibes" class="music-img">
+                <ul>
+                    <li>🎤 Pop: 35% of streams</li>
+                    <li>🎧 Hip-Hop: 28% growth</li>
+                    <li>🎸 Rock: Making a comeback!</li>
+                </ul>
+            </section>
+
+            <section class="section" id="trends">
+                <h2>Music Trends 📈</h2>
+                <p>Feel the rhythm of the data! 🥁</p>
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="DJ vibes" class="music-img">
+                <div id="trend-counter" class="pulse">0%</div>
+            </section>
+
+            <section class="section" id="about">
+                <h2>About Us 🎉</h2>
+                <p>We’re music lovers and data geeks blending tunes with Tableau magic! 🎶📊</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Music Analytics Jam | Crafted with 🎵 & ☕</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var divElement = document.getElementById('viz1743921088504');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            if (divElement.offsetWidth > 800) {
+                vizElement.style.width = '100%';
+                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+            } else if (divElement.offsetWidth > 500) {
+                vizElement.style.width = '100%';
+                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+            } else {
+                vizElement.style.width = '100%';
+                vizElement.style.height = '1277px';
+            }
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            scriptElement.onload = function() {
+                console.log('Tableau API loaded successfully!');
+            };
+            scriptElement.onerror = function() {
+                console.error('Failed to load Tableau API script. Check internet or dashboard visibility.');
+            };
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        });
+
+        let counter = document.getElementById('trend-counter');
+        let count = 0;
+        let target = 82;
+
+        function updateCounter() {
+            if (count < target) {
+                count++;
+                counter.textContent = `${count}%`;
+                setTimeout(updateCounter, 40);
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const trendsSection = document.getElementById('trends');
+            const rect = trendsSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && count === 0) {
+                updateCounter();
+            }
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
